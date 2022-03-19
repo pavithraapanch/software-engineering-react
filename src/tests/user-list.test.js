@@ -1,4 +1,4 @@
-import {UserList} from "../components/profile/userList";
+import {UserList} from "../components/profile/user-list";
 import {screen, render} from "@testing-library/react";
 import {HashRouter} from "react-router-dom";
 import {findAllUsers} from "../services/users-service";
@@ -15,7 +15,8 @@ test('user list renders static user array', () => {
   render(
     <HashRouter>
       <UserList users={MOCKED_USERS}/>
-    </HashRouter>);
+    </HashRouter>
+  );
   const linkElement = screen.getByText(/ellen_ripley/i);
   expect(linkElement).toBeInTheDocument();
 });
@@ -25,7 +26,8 @@ test('user list renders async', async () => {
   render(
     <HashRouter>
       <UserList users={users}/>
-    </HashRouter>);
+    </HashRouter>
+  );
   const linkElement = screen.getByText(/NASA/i);
   expect(linkElement).toBeInTheDocument();
 })
